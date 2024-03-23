@@ -86,14 +86,14 @@ const Modal: React.FC<ModalProps> = (props) => {
               return starElements;
             })()}
           </div>
-          <h2 className="text-9xl font-bold text-white text-center">
+          <h2 className="lg:text-9xl sm:text-6xl xs:text-6xl font-bold text-white text-center">
             CONGRATS
           </h2>
-          <p className="text-5xl font-bold text-white text-center">
+          <p className="lg:text-5xl sm:text-2xl xs:text-3xl font-bold text-white text-center">
             {mutationResult?.endGameSession?.score} POINTS
           </p>
           <div className="flex justify-center">
-            <button className="w-1/4 text-white text-xl p-5 rounded-lg bg-orange hover:bg-dark-blue">
+            <button className="text-white text-xl lg:py-5 sm:py-3 xs:py-3 px-8 rounded-lg bg-orange hover:bg-dark-blue">
               <Link href={`/`}>HOME</Link>
             </button>
           </div>

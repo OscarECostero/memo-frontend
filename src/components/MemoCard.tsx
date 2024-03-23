@@ -10,7 +10,7 @@ type MemoCardProps = {
 const MemoCard: React.FC<MemoCardProps> = ({ memotest }) => {
   return (
     <>
-      <div className="w-96 h-96 bg-[#A8DADC] px-6 pt-20 pb-12 rounded-lg flex flex-col justify-between drop-shadow-3xl text-center">
+      <div className="lg:w-96 lg:h-96 sm:w-64 sm:h-64 xs:h-64 xs:w-64 xs:pt-12 sm:pt-12 bg-[#A8DADC] px-6 lg:pt-24  pb-12 rounded-lg flex flex-col justify-between drop-shadow-3xl text-center">
         <div>
           <h1 className="text-orange text-5xl">{memotest.name}</h1>
           <div className="flex justify-center gap-4">
@@ -21,7 +21,7 @@ const MemoCard: React.FC<MemoCardProps> = ({ memotest }) => {
 
         <div>
           <Link href={`/games/${memotest.id}`}>
-            <button className="w-3/4 text-white text-xl p-5 rounded-lg bg-orange hover:bg-dark-blue">
+            <button className="xs:p-2 sm:p-4 w-3/4 text-white text-xl lg:p-5 rounded-lg bg-orange hover:bg-dark-blue">
               {memotest.gameSession === null ||
               memotest.gameSession.state === "Completed"
                 ? "Start"

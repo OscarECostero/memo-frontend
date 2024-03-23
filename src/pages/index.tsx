@@ -26,7 +26,7 @@ const HomePage = () => {
   }, [refetch]);
   
   return (
-    <main className="p-14 flex gap-24 justify-center items-center">
+    <main className="p-14 flex flex-wrap gap-24 justify-center items-center">
       {memotests?.map((memotest: MemoTest) => (
         <MemoCard key={memotest.id} memotest={memotest} />
       ))}
