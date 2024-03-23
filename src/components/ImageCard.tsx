@@ -5,7 +5,7 @@ const ImageCard: React.FC<any> = ({ image, position, turnCard, flipped }) => {
   return (
     <>
       <div
-        className="w-40 bg-[#A8DADC] px-6 pt-20 pb-12 rounded-lg flex drop-shadow-3xl items-center justify-center hover:bg-dark-blue cursor-pointer select-none"
+        className="lg:w-40 xs:w-20 xs:w-20 bg-[#A8DADC] px-6 lg:pt-20 xs:pt-8 lg:pb-12 xs:pb-6 rounded-lg flex drop-shadow-3xl items-center justify-center hover:bg-dark-blue cursor-pointer select-none"
         onClick={() => turnCard(image.id)}
       >
         <Image
