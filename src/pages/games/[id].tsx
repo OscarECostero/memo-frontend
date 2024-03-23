@@ -131,45 +131,52 @@ const GamePage = () => {
         selected: [id],
       });
     } else if (!currentFlipped.includes(id)) {
-      const match =
-        sortedImages.find((image: MemoImage) => image.id === currentFlipped[0])
-          .url === sortedImages.find((image: MemoImage) => image.id === id).url;
+      const firstFlippedImage = sortedImages.find(
+        (image: MemoImage) => image.id === currentFlipped[0]
+      );
+      const currentImage = sortedImages.find(
+        (image: MemoImage) => image.id === id
+      );
 
-      setFlipped({
-        ...flipped,
-        selected: [...flipped.selected, id],
-      });
+      if (firstFlippedImage && currentImage) {
+        const match = firstFlippedImage.url === currentImage.url;
 
-      if (match) {
         setFlipped({
-          completed: [...flipped.completed, ...currentFlipped, id],
-          selected: [],
+          ...flipped,
+          selected: [...flipped.selected, id],
         });
-        setCurrentFlipped([]);
 
-        mutationIncrementRetries();
-        const images = [...flipped.completed, ...currentFlipped, id];
-
-        const game = {
-          gameId: id,
-          images,
-        };
-
-        localStorage.setItem("game", JSON.stringify(game));
-
-        if (images.length / 2 == gameData?.images.length) {
-          setShowModal(true);
-          localStorage.removeItem("game");
-        }
-      } else {
-        mutationIncrementRetries();
-        setTimeout(() => {
+        if (match) {
           setFlipped({
-            ...flipped,
+            completed: [...flipped.completed, ...currentFlipped, id],
             selected: [],
           });
           setCurrentFlipped([]);
-        }, 300);
+
+          mutationIncrementRetries();
+          const images = [...flipped.completed, ...currentFlipped, id];
+
+          const game = {
+            gameId: id,
+            images,
+          };
+
+          localStorage.setItem("game", JSON.stringify(game));
+
+          if (images.length / 2 === (gameData?.images?.length || 0)) {
+            setShowModal(true);
+            localStorage.removeItem("game");
+          }
+        } else {
+          mutationIncrementRetries();
+          setTimeout(() => {
+            setFlipped({
+              ...flipped,
+              selected: [],
+            });
+            setCurrentFlipped([]);
+          }, 300);
+        }
       }
     }
   };
