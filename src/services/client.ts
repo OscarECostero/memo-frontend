@@ -3,7 +3,7 @@ import { ApolloClient, InMemoryCache, createHttpLink } from "@apollo/client";
 console.log(process.env.NEXT_PUBLIC_BACKEND_URL)
 
 const httpLink = createHttpLink({
-    uri: 'http://localhost:8000/graphql',
+    uri: process.env.NEXT_PUBLIC_BACKEND_URL,
   });
 
 const clientMemoTest = new ApolloClient({
