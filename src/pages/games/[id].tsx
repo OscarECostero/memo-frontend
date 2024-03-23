@@ -206,7 +206,7 @@ const GamePage = () => {
               <h1 className="text-4xl">{gameData.name}</h1>
             </div>
           </div>
-          <div className="flex justify-center lg:w-4/6 xs:w-full flex-wrap lg:gap-12 xs:gap-4 md:row-gap-6 bg-black bg-opacity-20 backdrop-blur-8 lg:p-10 xs:p-4 rounded-lg mx-auto">
+          <div className="flex justify-center lg:w-4/6 sm:w-full xs:w-full flex-wrap lg:gap-12 xs:gap-4 sm:gap-4 md:row-gap-6 bg-black bg-opacity-20 backdrop-blur-8 lg:p-10 xs:p-4 sm:p-4 rounded-lg mx-auto">
             <ImageList
               images={sortedImages}
               turnCard={turnCard}
